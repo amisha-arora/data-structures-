@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maxProduct(vector<int>& arr) {
-        if(arr.size()==1)// if the length of the array is 1 return its first element
+        if(arr.size()==1)// if the length of the array is 1 return it's first element
         {
             return arr[0];
         }
