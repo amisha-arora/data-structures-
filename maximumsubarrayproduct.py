@@ -1,6 +1,6 @@
 class Solution(object):
     def maxProduct(self, nums):
-        res=max(nums) # initialize the res with maximum of nums
+        res=max(nums) # initialize the result with maximum of nums
         curmax,curmin=1,1
         for n in nums: 
             if n==0:# if its true then the product will turn to 0
