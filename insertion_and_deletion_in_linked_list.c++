@@ -42,6 +42,29 @@ void insertAfter(Node* prev_node, int val) {
     prev_node->next = n;
 }
 
+void deleteAtHead(Node*& head) {
+    if (head == nullptr) return;
+    Node* toDelete = head;
+    head = head->next;
+    delete toDelete;
+}
+
+void deletion(Node*& head, int val) {
+    if (head == nullptr) return;
+    if (head->data == val) {
+        deleteAtHead(head);
+        return;
+    }
+    Node* temp = head;
+    while (temp->next != nullptr && temp->next->data != val) {
+        temp = temp->next;
+    }
+    if (temp->next == nullptr) return;
+    Node* toDelete = temp->next;
+    temp->next = temp->next->next;
+    delete toDelete;
+}
+
 void display(Node* head) {
     Node* temp = head;
     while (temp != nullptr) {
@@ -53,18 +76,17 @@ void display(Node* head) {
 
 int main() {
     Node* head = nullptr;
-
     insertAtTail(head, 1);
     display(head);
-
     insertAtTail(head, 2);
     display(head);
-
     insertAtHead(head, 4);
     display(head);
-
     insertAfter(head->next, 3); // Insert after the second node (head->next)
-
+    display(head);
+    deletion(head, 3);
+    display(head);
+    deleteAtHead(head);
     display(head);
 
     return 0;
